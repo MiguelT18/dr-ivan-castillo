@@ -1,0 +1,314 @@
+// Reset styles...
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Set REM size converted
+html {
+  font-size: 62.5%;
+}
+
+// =============
+// Set variables
+// =============
+
+// Color palette
+$soft-sky-blue: #00c2dd;
+$sky-blue: #42b3f7;
+$dark-blue: #040615;
+$just-white: #f1f1f1;
+$just-grey: #1c1e21;
+
+// Font families
+$fam-inter: "Inter", sans-serif;
+$fam-poppins: "Poppins", sans-serif;
+
+// Font sizes
+$size-lg: clamp(2.24rem, 6vw, 3rem);
+$size-md: clamp(2rem, 6vw, 2.7rem);
+$size-sm: clamp(1.08rem, 3vw, 2rem);
+
+@mixin titleStyles($color) {
+  color: $color;
+  text: {
+    transform: uppercase;
+    align: center;
+  }
+  font: {
+    size: $size-lg;
+    family: $fam-poppins;
+    weight: 900;
+  }
+}
+@mixin subtitleStyles($color) {
+  color: $color;
+  text-align: center;
+  font: {
+    size: $size-md;
+    weight: 900;
+    family: $fam-poppins;
+  }
+}
+@mixin paragraphStyles($color) {
+  color: $color;
+  line-height: 260%;
+  text-align: center;
+  font: {
+    size: $size-sm;
+    family: $fam-poppins;
+    weight: 300;
+  }
+}
+
+// ==================
+// Main button styles
+// ==================
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+}
+
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: $soft-sky-blue;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+  font-family: $fam-inter;
+  font-size: $size-md;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: $just-white;
+}
+
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: $just-white;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+  width: 100%;
+  background: $soft-sky-blue;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active {
+  transform: scale(0.95);
+}
+// =============
+// Header Styles
+// =============
+header {
+  width: 100%;
+  background-color: #f1f1f1;
+  nav {
+    background-color: $dark-blue;
+    padding: 8px 0;
+    img {
+      width: clamp(5.6rem, 5vw, 8rem);
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 2px 2px 40px -15px #f1f1f1;
+    }
+  }
+  .header-container {
+    display: grid;
+    gap: 30px;
+    padding: 30px 14px 60px;
+    .text-container {
+      display: grid;
+      justify-content: center;
+      gap: 15px;
+      h1 {
+        @include titleStyles($sky-blue);
+        max-width: 500px;
+      }
+      p {
+        @include paragraphStyles($just-grey);
+        max-width: 472px;
+      }
+    }
+    img {
+      width: 100%;
+      max-width: 460px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+// =============
+// Main Styles
+// =============
+
+main {
+  // SECTION #1
+  section:first-child {
+    width: 100%;
+    background-color: $dark-blue;
+    padding: 0 14px 50px;
+    h1 {
+      @include titleStyles($sky-blue);
+      padding: 50px 0;
+    }
+    .social-media-container {
+      display: grid;
+      justify-items: center;
+      gap: 90px;
+      .tiktok-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          @include subtitleStyles($just-white);
+          text-transform: uppercase;
+          padding: 20px 0 10px;
+          color: $just-white;
+        }
+        p {
+          @include paragraphStyles($just-white);
+          padding-bottom: 16px;
+          max-width: 472px;
+        }
+      }
+      .youtube-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          @include subtitleStyles($just-white);
+          text-transform: uppercase;
+          padding: 20px 0 10px;
+          color: $just-white;
+        }
+        p {
+          @include paragraphStyles($just-white);
+          padding-bottom: 16px;
+          max-width: 472px;
+        }
+      }
+      .instagram-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          @include subtitleStyles($just-white);
+          text-transform: uppercase;
+          padding: 20px 0 10px;
+          color: $just-white;
+        }
+        p {
+          @include paragraphStyles($just-white);
+          padding-bottom: 16px;
+          max-width: 472px;
+        }
+      }
+    }
+  }
+
+  // SECTION #1
+  section:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .about-owner-product {
+      width: 90%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #020202;
+      border-radius: 8px;
+      text-align: center;
+      margin: 40px 0;
+      img {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+      .owner-text-container {
+        padding: 0 14px;
+        h2 {
+          @include titleStyles($just-white);
+          padding: 20px 0 6px;
+        }
+        h3 {
+          @include subtitleStyles($sky-blue);
+          padding-bottom: 6px;
+          font-weight: 500;
+        }
+        p {
+          @include paragraphStyles($just-white);
+          padding-bottom: 14px;
+        }
+      }
+    }
+  }
+}
+
+// =============
+// Footer Styles
+// =============
+
+footer {
+  height: 10vh;
+  background-color: #020202;
+  color: $just-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: {
+    size: $size-sm;
+    weight: 300;
+    family: $fam-poppins;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 100vh;
+    .header-container {
+      max-width: 90%;
+      height: 80%;
+      align-items: center;
+      margin: 0 auto;
+      grid-template-columns: repeat(2, 1fr);
+      .text-container {
+        h1 {
+          text-align: start;
+        }
+        p {
+          text-align: start;
+        }
+      }
+    }
+  }
+}
