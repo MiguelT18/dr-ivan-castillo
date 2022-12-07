@@ -99,7 +99,7 @@ $size-sm: clamp(1.08rem, 3vw, 2rem);
 
 .cta svg {
   position: relative;
-  top: 0;
+  top: -2px;
   margin-left: 10px;
   fill: none;
   stroke-linecap: round;
@@ -132,11 +132,11 @@ header {
     background-color: $dark-blue;
     padding: 8px 0;
     img {
-      width: clamp(5.6rem, 5vw, 8rem);
+      width: clamp(5.6rem, 10vw, 8rem);
       display: block;
       margin: 0 auto;
       border-radius: 50%;
-      box-shadow: 2px 2px 40px -15px #f1f1f1;
+      box-shadow: 0px 0px 50px -9px #f1f1f1;
     }
   }
   .header-container {
@@ -293,6 +293,14 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
+  // Main button
+
+  .cta {
+    padding: 8px 18px;
+  }
+
+  // Header Responsive
+
   header {
     height: 100vh;
     .header-container {
@@ -304,9 +312,45 @@ footer {
       .text-container {
         h1 {
           text-align: start;
+          padding-bottom: 16px;
         }
         p {
           text-align: start;
+        }
+      }
+    }
+  }
+
+  // Main Responsive
+
+  main {
+    // Section#1
+    section:first-child {
+      padding: 50px 14px 100px;
+      .social-media-container {
+        height: max-content;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    // Section#2
+    section:nth-child(2) {
+      .about-owner-product {
+        width: 100%;
+        max-width: 70%;
+        flex-direction: row;
+        border-radius: 12px;
+        margin: 80px 0;
+        .owner-text-container {
+          width: 100%;
+          h2 {
+            text-align: start;
+          }
+          h3 {
+            text-align: start;
+          }
+          p {
+            text-align: start;
+          }
         }
       }
     }
